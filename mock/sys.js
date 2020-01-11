@@ -14,7 +14,7 @@ export const getUserPermissionByToken = {
   message: '查询成功',
   code: 200,
   result: {
-    allAuth: [
+    allAuth: [// 按钮权限
       { action: 'online:goGenerateCode', describe: '代码生成按钮', type: '1', status: '1' },
       { action: 'online:sql', describe: 'SQL增强', type: '1', status: '1' },
       { action: 'online:ceshi_ruzhi:gwei', describe: '岗位字段控制', type: '1', status: '1' },
@@ -37,7 +37,7 @@ export const getUserPermissionByToken = {
       { action: 'user:syncbpm', describe: '同步流程', type: '1', status: '1' },
       { action: 'user:import', describe: '导入请求', type: '1', status: '1' }
     ],
-    auth: [
+    auth: [// 按钮权限
       { action: 'online:ceshi_ruzhi:gwei', describe: '岗位字段控制', type: '1' },
       { action: 'online:ceshi_ruzhi:ruz_date', describe: '入职时间', type: '2' },
       { action: 'online:ceshi_ruzhi:add', describe: '列表添加按钮', type: '1' },
@@ -280,33 +280,33 @@ export const getUserPermissionByToken = {
         name: 'isystem',
         id: 'd7d6e2e4e2934f2c9385a623fd98c6f3'
       },
-      {
-        redirect: null,
-        path: '/report',
-        component: 'layouts/RouteView',
-        route: '1',
-        children: [
-          {
-            path: '/report/ViserChartDemo',
-            component: 'jeecg/report/ViserChartDemo',
-            route: '1',
-            meta: { keepAlive: false, internalOrExternal: false, title: 'ViserChartDemo' },
-            name: 'report-ViserChartDemo',
-            id: '020b06793e4de2eee0007f603000c769'
-          },
-          {
-            path: '/report/ArchivesStatisticst',
-            component: 'jeecg/report/ArchivesStatisticst',
-            route: '1',
-            meta: { keepAlive: false, internalOrExternal: false, title: '布局统计报表' },
-            name: 'report-ArchivesStatisticst',
-            id: '2aeddae571695cd6380f6d6d334d6e7d'
-          }
-        ],
-        meta: { keepAlive: false, internalOrExternal: false, icon: 'bar-chart', title: '统计报表' },
-        name: 'report',
-        id: 'f0675b52d89100ee88472b6800754a08'
-      },
+      // {
+      //   redirect: null,
+      //   path: '/report',
+      //   component: 'layouts/RouteView',
+      //   route: '1',
+      //   children: [
+      //     {
+      //       path: '/report/ViserChartDemo',
+      //       component: 'jeecg/report/ViserChartDemo',
+      //       route: '1',
+      //       meta: { keepAlive: false, internalOrExternal: false, title: 'ViserChartDemo' },
+      //       name: 'report-ViserChartDemo',
+      //       id: '020b06793e4de2eee0007f603000c769'
+      //     },
+      //     {
+      //       path: '/report/ArchivesStatisticst',
+      //       component: 'jeecg/report/ArchivesStatisticst',
+      //       route: '1',
+      //       meta: { keepAlive: false, internalOrExternal: false, title: '布局统计报表' },
+      //       name: 'report-ArchivesStatisticst',
+      //       id: '2aeddae571695cd6380f6d6d334d6e7d'
+      //     }
+      //   ],
+      //   meta: { keepAlive: false, internalOrExternal: false, icon: 'bar-chart', title: '统计报表' },
+      //   name: 'report',
+      //   id: 'f0675b52d89100ee88472b6800754a08'
+      // },
 
       {
         redirect: null,
@@ -960,8 +960,8 @@ export const login = {
     multi_depart: 1,
     userInfo: {
       id: 'a75d45a015c44384a04449ee80dc3503',
-      username: 'jeecg',
-      realname: 'jeecg测试',
+      username: 'admin',
+      realname: 'admin测试',
       avatar: 'user/20190220/e1fe9925bc315c60addea1b98eb1cb1349547719_1550656892940.jpg',
       birthday: null,
       sex: 2,

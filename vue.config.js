@@ -31,6 +31,7 @@ module.exports = {
       .set('@views', resolve('src/views'))
       .set('@layout', resolve('src/layout'))
       .set('@static', resolve('src/static'))
+      .set('@business', resolve('src/business'))
   },
 
   css: {

@@ -314,7 +314,6 @@
           values: 'spring,jeecgboot',
           options: [
             { label: 'Jeecg', value: 'jeecg' },
-            { label: 'Jeecg-Boot', value: 'jeecgboot' },
             { label: 'Spring', value: 'spring', disabled: true },
             { label: 'MyBaits', value: 'mybatis' }
           ]
