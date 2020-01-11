@@ -33,8 +33,7 @@
 
 <script>
 import RouteView from '@/components/layouts/RouteView'
-import { mixinDevice } from '@/utils/mixin.js'
-import { ProjectConfigMixin } from '../../mixins'
+import { ProjectConfigMixin, mixinDevice } from '../../mixins'
 
 export default {
   name: 'UserLayout',

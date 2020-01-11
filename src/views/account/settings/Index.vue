@@ -51,7 +51,7 @@
 <script>
   import PageLayout from '@/components/page/PageLayout'
   import RouteView from "@/components/layouts/RouteView"
-  import { mixinDevice } from '@/utils/mixin.js'
+  import { mixinDevice } from '@/mixins'
 
   export default {
     components: {

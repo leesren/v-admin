@@ -13,7 +13,7 @@ const permission = {
   ],
   auth: [
     // 按钮/权限
-    { action: 'online:ceshi_ruzhi:gwei', describe: '岗位字段控制', type: '1' },
+    { action: 'online:ceshi_ruzhi:gwei', describe: '岗位字段控制', type: '1' }
   ],
   menu: [
     {
@@ -44,12 +44,12 @@ const permission = {
           path: '/online/cgform',
           component: 'modules/online/cgform/OnlCgformHeadList',
           route: '1',
+          // hidden: false, // 隐藏路由
+          // alwaysShow: false // 聚合路由
           meta: {
             keepAlive: true, // 是否缓存路由
             internalOrExternal: false, // 打开方式
             title: 'Online表单开发'
-            // hidden: false, // 隐藏路由
-            // alwaysShow: false // 聚合路由
           },
           name: 'online-cgform',
           id: '8d4683aacaa997ab86b966b464360338'

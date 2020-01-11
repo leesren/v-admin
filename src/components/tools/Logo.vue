@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { mixin } from '@/utils/mixin.js'
+import { mixin } from '@/mixins'
 import { projectConfig } from '@/config/project.config'
 export default {
   name: 'Logo',
@@ -44,7 +44,7 @@ export default {
     transition: background 300ms;
 
     a {
-      color: white;
+      color: #222;
       &:hover {
         color: rgba(255, 255, 255, 0.8);
       }
@@ -52,7 +52,7 @@ export default {
   }
 
   &.light .logo {
-    background-color: @primary-color;
+    background: #eee;
   }
 }
 </style>

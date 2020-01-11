@@ -133,7 +133,7 @@
 </template>
 
 <script>
-  import { mixinDevice } from '@/utils/mixin.js'
+  import { mixinDevice } from '@/mixins'
   import PageLayout from '@/components/page/PageLayout'
   import DetailList from '@/components/tools/DetailList'
 

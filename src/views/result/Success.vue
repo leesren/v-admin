@@ -61,7 +61,7 @@
 
 <script>
   import Result from './Result'
-  import { mixinDevice } from '@/utils/mixin.js'
+  import { mixinDevice } from '@/mixins'
 
   const directionType = {
     horizontal: 'horizontal',

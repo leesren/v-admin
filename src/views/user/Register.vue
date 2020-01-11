@@ -92,7 +92,7 @@
 </template>
 
 <script>
-  import {mixinDevice} from '@/utils/mixin.js'
+  import {mixinDevice} from '@/mixins'
   import {getSmsCaptcha} from '@/api/login'
   import {getAction, postAction} from '@/api/manage'
   import {checkOnlyUser} from '@/api/api'

@@ -84,7 +84,7 @@ import UserPassword from './UserPassword'
 import SettingDrawer from '@/components/setting/SettingDrawer'
 import DepartSelect from './DepartSelect'
 import { mapActions, mapGetters, mapState } from 'vuex'
-import { mixinDevice } from '@/utils/mixin.js'
+import { mixinDevice } from '@/mixins'
 
 export default {
   name: 'UserMenu',

@@ -183,7 +183,7 @@ import { projectConfig } from '@/config'
 const config = projectConfig.setting
 
 import { updateTheme, updateColorWeak, colorList } from '@/components/tools/setting'
-import { mixin, mixinDevice } from '@/utils/mixin.js'
+import { mixin, mixinDevice } from '@/mixins'
 import { triggerWindowResizeEvent } from '@/utils/util'
 
 export default {

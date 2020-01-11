@@ -1,177 +1,207 @@
 <template>
   <a-layout-sider
-    :class="['sider', isDesktop() ? null : 'shadow', theme, fixSiderbar ? 'ant-fixed-sidemenu' : null ]"
+    :class="['sider', isDesktop() ? null : 'shadow', theme, fixSiderbar ? 'ant-fixed-sidemenu' : null]"
     width="200px"
     :collapsible="collapsible"
     v-model="collapsed"
-    :trigger="null">
+    :trigger="null"
+  >
     <logo />
-    <s-menu
-      :collapsed="collapsed"
-      :menu="menus"
-      :theme="theme"
-      @select="onSelect"
-      :mode="mode"
-      :style="smenuStyle">
+    <s-menu :collapsed="collapsed" :menu="menus" :theme="theme" @select="onSelect" :mode="mode" :style="smenuStyle">
     </s-menu>
+    <div style="background-color:#eee;height:80px;">
+      <a-popover>
+        <template slot="content">
+          <div class="ptb5">
+            <a-icon type="user" />
+            <span class="pl10">个人信息</span>
+          </div>
+          <div class="ptb5">
+            <a-icon type="logout" />
+            <span class="pl10">退出登录</span>
+          </div>
+        </template>
+        <div class="fbox-hvc pt10 pointer tx-pc">
+          <img style="width:22px;height:22px;" src="~@/assets/logo.svg" alt="light" />
+          <span class="fs14 pl5 ">张三非</span>
+          <a-icon type="caret-down" />
+        </div>
+      </a-popover>
+    </div>
   </a-layout-sider>
-
 </template>
 
 <script>
-  import ALayoutSider from "ant-design-vue/es/layout/Sider"
-  import Logo from '../tools/Logo'
-  import SMenu from './index'
-  import { mixin, mixinDevice } from '@/utils/mixin.js'
+import ALayoutSider from 'ant-design-vue/es/layout/Sider'
+import Logo from '../tools/Logo'
+import SMenu from './index'
+import { mixin, mixinDevice } from '@/mixins'
 
-  export default {
-    name: "SideMenu",
-    components: { ALayoutSider, Logo, SMenu },
-    mixins: [mixin, mixinDevice],
-    props: {
-      mode: {
-        type: String,
-        required: false,
-        default: 'inline'
-      },
-      theme: {
-        type: String,
-        required: false,
-        default: 'dark'
-      },
-      collapsible: {
-        type: Boolean,
-        required: false,
-        default: false
-      },
-      collapsed: {
-        type: Boolean,
-        required: false,
-        default: false
-      },
-      menus: {
-        type: Array,
-        required: true
-      }
+export default {
+  name: 'SideMenu',
+  components: { ALayoutSider, Logo, SMenu },
+  mixins: [mixin, mixinDevice],
+  props: {
+    mode: {
+      type: String,
+      required: false,
+      default: 'inline'
     },
-    computed:{
-      smenuStyle() {
-        let style = { 'padding': '0' }
-        if (this.fixSiderbar) {
-          style['height'] = 'calc(100% - 59px)'
-          style['overflow'] = 'auto'
-          style['overflow-x'] = 'hidden'
-        }
-        return style
-      }
+    theme: {
+      type: String,
+      required: false,
+      default: 'dark'
     },
-    methods: {
-      onSelect (obj) {
-        this.$emit('menuSelect', obj)
+    collapsible: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    collapsed: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    menus: {
+      type: Array,
+      required: true
+    }
+  },
+  computed: {
+    smenuStyle() {
+      let style = { padding: '0' }
+      if (this.fixSiderbar) {
+        style['height'] = 'calc(100% - 59px - 80px)'
+        style['overflow'] = 'auto'
+        style['overflow-x'] = 'hidden'
       }
+      return style
+    }
+  },
+  methods: {
+    onSelect(obj) {
+      this.$emit('menuSelect', obj)
     }
   }
+}
 </script>
 <style lang="scss" scoped>
-
-  /* update_begin author:sunjianlei date:20190509 for: 修改侧边导航栏滚动条的样式 */
-  .sider {
-    $scrollBarSize: 10px;
-
-    ul.ant-menu {
-
-      /* 定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
-      &::-webkit-scrollbar {
-        width: $scrollBarSize;
-        height: $scrollBarSize;
-        background-color: transparent;
-        display: none;
-      }
-
-      & .-o-scrollbar {
-        display: none;
-      }
-
-      /* 兼容IE */
-      -ms-overflow-style: none;
-      -ms-scroll-chaining: chained;
-      -ms-content-zooming: zoom;
-      -ms-scroll-rails: none;
-      -ms-content-zoom-limit-min: 100%;
-      -ms-content-zoom-limit-max: 500%;
-      -ms-scroll-snap-type: proximity;
-      -ms-scroll-snap-points-x: snapList(100%, 200%, 300%, 400%, 500%);
-
-      /* 定义滚动条轨道 */
-      &::-webkit-scrollbar-track {
-        background-color: transparent;
-      }
-
-      /* 定义滑块 */
-      &::-webkit-scrollbar-thumb {
-        border-radius: $scrollBarSize;
-        background-color: #eee;
-        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-
-        &:hover {
-          background-color: #dddddd;
-        }
-
-        &:active {
-          background-color: #bbbbbb;
-        }
-      }
+/* update_begin author:sunjianlei date:20190509 for: 修改侧边导航栏滚动条的样式 */
+.sider {
+  $scrollBarSize: 10px;
+  .ant-layout-sider-children{
+    display: flex;
+    flex-direction: column;
+  }
+  ul.ant-menu {
+    flex:1;
+    /* 定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+    &::-webkit-scrollbar {
+      width: $scrollBarSize;
+      height: $scrollBarSize;
+      background-color: transparent;
+      display: none;
     }
 
-    /** 暗色系滚动条样式 */
-    &.dark ul.ant-menu {
-      &::-webkit-scrollbar-thumb {
-        background-color: #666666;
-
-        &:hover {
-          background-color: #808080;
-        }
-
-        &:active {
-          background-color: #999999;
-        }
-      }
+    & .-o-scrollbar {
+      display: none;
     }
 
+    /* 兼容IE */
+    -ms-overflow-style: none;
+    -ms-scroll-chaining: chained;
+    -ms-content-zooming: zoom;
+    -ms-scroll-rails: none;
+    -ms-content-zoom-limit-min: 100%;
+    -ms-content-zoom-limit-max: 500%;
+    -ms-scroll-snap-type: proximity;
+    -ms-scroll-snap-points-x: snapList(100%, 200%, 300%, 400%, 500%);
+
+    /* 定义滚动条轨道 */
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    /* 定义滑块 */
+    &::-webkit-scrollbar-thumb {
+      border-radius: $scrollBarSize;
+      background-color: #eee;
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+
+      &:hover {
+        background-color: #dddddd;
+      }
+
+      &:active {
+        background-color: #bbbbbb;
+      }
+    }
   }
 
-  /* update_end author:sunjianlei date:20190509 for: 修改侧边导航栏滚动条的样式 */
+  /** 暗色系滚动条样式 */
+  &.dark ul.ant-menu {
+    &::-webkit-scrollbar-thumb {
+      background-color: #666666;
 
+      &:hover {
+        background-color: #808080;
+      }
+
+      &:active {
+        background-color: #999999;
+      }
+    }
+  }
+}
+
+/* update_end author:sunjianlei date:20190509 for: 修改侧边导航栏滚动条的样式 */
 </style>
 
 <!-- update_begin author:sunjianlei date:20190530 for: 选中首页的时候不显示背景颜色 -->
 <style lang="less">
-  .ant-menu.ant-menu-root {
-    & > .ant-menu-item:first-child {
-      background-color: transparent;
+ul.ant-menu {
+  background: #eee;
+  .ant-menu-submenu > .ant-menu {
+    background: #eee;
+  }
+}
+.ant-menu:not(.ant-menu-horizontal) li.ant-menu-item-selected {
+  background-color: #f9f9f9;
+  // & > a,
+  // & > a:hover {
+  //   color: #000000;
+  // }
+}
+.ant-menu.ant-menu-root {
+  & > .ant-menu-item.ant-menu-item-selecte {
+    background-color: #f9f9f9;
 
-      & > a, & > a:hover {
-        color: rgba(0, 0, 0, 0.65);
-      }
-
-      &.ant-menu-item-selected {
-        & > a, & > a:hover {
-          color: @primary-color;
-        }
-      }
+    & > a,
+    & > a:hover {
+      color: rgba(0, 0, 0, 0.65);
     }
 
-    &.ant-menu-dark > .ant-menu-item:first-child {
-      & > a, & > a:hover {
-        color: rgba(255, 255, 255, 0.65);
-      }
-
-      &.ant-menu-item-selected {
-        & > a, & > a:hover {
-          color: rgba(255, 255, 255, 1);
-        }
+    &.ant-menu-item-selected {
+      & > a,
+      & > a:hover {
+        color: @primary-color;
       }
     }
   }
+
+  &.ant-menu-dark > .ant-menu-item:first-child {
+    & > a,
+    & > a:hover {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    &.ant-menu-item-selected {
+      & > a,
+      & > a:hover {
+        color: rgba(255, 255, 255, 1);
+      }
+    }
+  }
+}
 </style>
 <!-- update_end author:sunjianlei date:20190530 for: 选中首页的时候不显示背景颜色 -->

@@ -85,11 +85,24 @@ export const localRouterConfig = {
       redirect: null,
       path: '/dashboard/analysis',
       component: 'dashboard/Analysis',
-      meta: { keepAlive: false, internalOrExternal: false, icon: 'home', title: '首页' },
-      name: 'dashboard-analysis',
-      id: '9502685863ab87f0ad1134142788a385'
+      meta: { keepAlive: false, internalOrExternal: false, icon: 'home', title: '营业部总览' },
+      name: 'dashboard-analysis'
     },
-
+    {
+      path: '/dashboard/Bank2Stock',
+      component: 'dashboard/details/Bank2Stock',
+      // hidden: true,
+      // alwaysShow:false,
+      meta: { keepAlive: false,icon: 'dollar', internalOrExternal: false, title: '银行转证券top50' },
+      name: 'Bank2Stock'
+    },
+    {
+      path: '/customer/Analysis',
+      component: 'customer/Analysis',
+      // alwaysShow:false,
+      meta: { keepAlive: false,  icon: 'team',internalOrExternal: false, title: '客户分析' },
+      name: 'customerAnalysis'
+    },
     {
       redirect: null,
       path: '/online',
@@ -100,7 +113,7 @@ export const localRouterConfig = {
           path: '/online/cgform',
           component: 'modules/online/cgform/OnlCgformHeadList',
 
-          meta: { keepAlive: true, internalOrExternal: false, title: 'Online表单开发' },
+          meta: { keepAlive: true, icon: 'team', internalOrExternal: false, title: '客户分析' },
           name: 'online-cgform',
           id: '8d4683aacaa997ab86b966b464360338'
         },
@@ -108,7 +121,7 @@ export const localRouterConfig = {
           path: '/online/cgreport',
           component: 'modules/online/cgreport/OnlCgreportHeadList',
 
-          meta: { keepAlive: false, internalOrExternal: false, title: 'Online报表配置' },
+          meta: { keepAlive: false, icon: 'dollar', internalOrExternal: false, title: '资产分析' },
           name: 'online-cgreport',
           id: '109c78a583d4693ce2f16551b7786786'
         },
@@ -116,23 +129,16 @@ export const localRouterConfig = {
           path: '/online/graphreport',
           component: 'modules/online/graphreport/OnlGraphreportHeadList',
 
-          meta: { keepAlive: false, internalOrExternal: false, title: 'Online图表配置' },
+          meta: { keepAlive: false, icon: 'money-collect', internalOrExternal: false, title: '收入分析' },
           name: 'online-graphreport',
           id: '7d08d3885671cf0ff1c4fe5d82fcd0e2'
         },
-        {
-          path: '/online/graphreport/templet',
-          component: 'modules/online/graphreport/OnlGraphreportTempletList',
 
-          meta: { keepAlive: false, internalOrExternal: false, title: 'Online组合报表' },
-          name: 'online-graphreport-templet',
-          id: '6242fb02030e9778973390766a5791a7'
-        },
         {
           path: '/isystem/fillRule',
           component: 'system/SysFillRuleList',
 
-          meta: { keepAlive: false, internalOrExternal: false, title: '系统编码规则' },
+          meta: { keepAlive: false, icon: 'interation', internalOrExternal: false, title: '交易分析' },
           name: 'isystem-fillRule',
           id: '1192318987661234177'
         },
@@ -313,7 +319,7 @@ export const localRouterConfig = {
       meta: { keepAlive: false, internalOrExternal: false, icon: 'setting', title: '系统管理' },
       name: 'isystem',
       id: 'd7d6e2e4e2934f2c9385a623fd98c6f3'
-    },
+    }
 
     // {
     //   redirect: null,

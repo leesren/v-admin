@@ -3,7 +3,7 @@
     <!-- update-begin- author:sunjianlei --- date:20191009 --- for: 提升右键菜单的层级 -->
     <contextmenu :itemList="menuItemList" :visible.sync="menuVisible" style="z-index: 9999;" @select="onMenuSelect"/>
     <!-- update-end- author:sunjianlei --- date:20191009 --- for: 提升右键菜单的层级 -->
-    <a-tabs
+    <!-- <a-tabs
       @contextmenu.native="e => onContextmenu(e)"
       v-if="multipage"
       :active-key="activePage"
@@ -17,8 +17,9 @@
       <a-tab-pane :id="page.fullPath" :key="page.fullPath" v-for="page in pageList">
         <span slot="tab" :pagekey="page.fullPath">{{ page.meta.title }}</span>
       </a-tab-pane>
-    </a-tabs>
-    <div style="margin: 12px 12px 0;">
+    </a-tabs> -->
+    <!-- <div style="margin: 12px 12px 0;"> -->
+    <div style="">
       <transition name="page-toggle">
         <keep-alive v-if="multipage">
           <router-view v-if="reloadFlag"/>
@@ -34,7 +35,7 @@
 <script>
   import GlobalLayout from '@/components/page/GlobalLayout'
   import Contextmenu from '@/components/menu/Contextmenu'
-  import { mixin, mixinDevice } from '@/utils/mixin.js'
+  import { mixin, mixinDevice } from '@/mixins'
   import { triggerWindowResizeEvent } from '@/utils/util'
 
   const indexKey = '/dashboard/analysis'
