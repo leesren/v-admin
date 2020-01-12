@@ -1,44 +1,12 @@
 <template>
   <!-- , width: fixedHeader ? `calc(100% - ${sidebarOpened ? 256 : 80}px)` : '100%'  -->
-  <a-layout-header
-    v-if="!headerBarFixed"
-    :class="[
-      fixedHeader && 'ant-header-fixedHeader',
-      sidebarOpened ? 'ant-header-side-opened' : 'ant-header-side-closed'
-    ]"
-    :style="{ padding: '0' }"
-  >
-    <div v-if="mode === 'sidemenu'" class="header" :class="theme">
-      <a-icon
-        v-if="device === 'mobile'"
-        class="trigger"
-        :type="collapsed ? 'menu-fold' : 'menu-unfold'"
-        @click.native="toggle"
-      ></a-icon>
-      <a-icon v-else class="trigger" :type="collapsed ? 'menu-unfold' : 'menu-fold'" @click.native="toggle" />
-
-
+  <div>
+    <div class="header" :class="theme">
+      <a-icon class="trigger" :type="collapsed ? 'menu-fold' : 'menu-unfold'" @click.native="toggle"></a-icon>
       <user-menu :theme="theme" />
     </div>
     <!-- 顶部导航栏模式 -->
-    <div v-else :class="['top-nav-header-index', theme]">
-      <div class="header-index-wide">
-        <div class="header-index-left" :style="topMenuStyle.headerIndexLeft">
-          <logo class="top-nav-header" :show-title="device !== 'mobile'" :style="topMenuStyle.topNavHeader" />
-          <div v-if="device !== 'mobile'" :style="topMenuStyle.topSmenuStyle">
-            <s-menu mode="horizontal" :menu="menus" :theme="theme"></s-menu>
-          </div>
-          <a-icon
-            v-else
-            class="trigger"
-            :type="collapsed ? 'menu-fold' : 'menu-unfold'"
-            @click.native="toggle"
-          ></a-icon>
-        </div>
-        <user-menu class="header-index-right" :theme="theme" :style="topMenuStyle.headerIndexRight" />
-      </div>
-    </div>
-  </a-layout-header>
+  </div>
 </template>
 
 <script>
@@ -181,16 +149,13 @@ export default {
 
   .header {
     z-index: 2;
-    color: white;
-    height: @height;
-    background-color: @primary-color;
+    padding: 0;
     transition: background 300ms;
 
     /* dark 样式 */
     &.dark {
-      color: #000000;
       box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-      background-color: @primary-color;
+      color: white;
     }
   }
 
@@ -201,11 +166,9 @@ export default {
     }
   }
 }
-
-.ant-layout-header {
-  height: @height;
-  line-height: @height;
+</style>
+<style>
+/deep/.ant-layout-header {
+  padding: 0;
 }
-
-/* update_end author:scott date:20190220 for: 缩小首页布局顶部的高度*/
 </style>

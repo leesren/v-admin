@@ -5,7 +5,7 @@
     :collapsible="collapsible"
     v-model="collapsed"
     :trigger="null">
-    <logo />
+    <logo :theme="theme"/>
     <s-menu
       :collapsed="collapsed"
       :menu="menus"

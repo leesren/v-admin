@@ -119,7 +119,6 @@
       this.heartCheckFun();
     },
     destroyed: function () { // 离开页面生命周期函数
-      this.websocketclose();
     },
     methods: {
       timerFun() {

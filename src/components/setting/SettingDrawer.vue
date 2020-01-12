@@ -195,7 +195,7 @@ export default {
   data() {
     return {
       visible: true,
-      colorList,
+      colorList, 
       dataFixSiderbar: false
     }
   },
