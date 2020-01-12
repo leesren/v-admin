@@ -15,12 +15,9 @@ import 'css-comm-utils' // or 'ant-design-vue/dist/antd.less'
 import '@/permission' // permission control
 import '@/utils/filter' // base filter
 import installVueAntd from './utils/installVueAntd'
- 
 
 // import preview from 'vue-photo-preview'
 // import 'vue-photo-preview/dist/skin.css'
-// import "@jeecg/antd-online-re"
-// import '@jeecg/antd-online-re/dist/OnlineForm.css'
 
 import {
   ACCESS_TOKEN,
