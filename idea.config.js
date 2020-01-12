@@ -18,7 +18,9 @@ module.exports = {
             '@utils': resolve('src/utils'),
             '@entry': resolve('src/entry'),
             '@router': resolve('src/router'),
-            '@store': resolve('src/store')
+            '@store': resolve('src/store'),
+            '@mixins': resolve('src/mixins'),
+            '@business': resolve('src/business')
         }
     },
 }

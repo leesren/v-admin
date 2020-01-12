@@ -25,15 +25,11 @@
 </template>
 
 <script>
-  import draggable from 'vuedraggable'
-  import ARow from 'ant-design-vue/es/grid/Row'
-  import ACol from 'ant-design-vue/es/grid/Col'
+  import draggable from 'vuedraggable' 
 
   export default {
     name: 'ImgDragSort',
-    components:{
-      ACol,
-      ARow,
+    components:{ 
       draggable
     },
     data() {

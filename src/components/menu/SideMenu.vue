@@ -16,7 +16,7 @@
             <a-icon type="user" />
             <span class="pl10">个人信息</span>
           </div>
-          <div class="ptb5">
+          <div class="ptb5 pointer" @click="handleLogout">
             <a-icon type="logout" />
             <span class="pl10">退出登录</span>
           </div>
@@ -32,14 +32,15 @@
 </template>
 
 <script>
-import ALayoutSider from 'ant-design-vue/es/layout/Sider'
+import { Layout } from 'ant-design-vue'
+
 import Logo from '../tools/Logo'
 import SMenu from './index'
 import { mixin, mixinDevice } from '@/mixins'
-
+import { mapActions, mapGetters, mapState } from 'vuex'
 export default {
   name: 'SideMenu',
-  components: { ALayoutSider, Logo, SMenu },
+  components: { ALayoutSider: Layout.Sider, Logo, SMenu },
   mixins: [mixin, mixinDevice],
   props: {
     mode: {
@@ -79,8 +80,32 @@ export default {
     }
   },
   methods: {
+    ...mapActions(['Logout']),
     onSelect(obj) {
       this.$emit('menuSelect', obj)
+    },
+    handleLogout() {
+      const that = this
+
+      this.$confirm({
+        title: '提示',
+        content: '真的要注销登录吗 ?',
+        onOk() {
+          return that
+            .Logout({})
+            .then(() => {
+              window.location.href = '/'
+              //window.location.reload()
+            })
+            .catch(err => {
+              that.$message.error({
+                title: '错误',
+                description: err.message
+              })
+            })
+        },
+        onCancel() {}
+      })
     }
   }
 }
@@ -89,12 +114,12 @@ export default {
 /* update_begin author:sunjianlei date:20190509 for: 修改侧边导航栏滚动条的样式 */
 .sider {
   $scrollBarSize: 10px;
-  .ant-layout-sider-children{
+  .ant-layout-sider-children {
     display: flex;
     flex-direction: column;
   }
   ul.ant-menu {
-    flex:1;
+    flex: 1;
     /* 定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
     &::-webkit-scrollbar {
       width: $scrollBarSize;

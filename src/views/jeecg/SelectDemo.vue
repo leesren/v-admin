@@ -97,16 +97,11 @@
           </a-col>
           <a-col :span="12">多选组合(v-model)：{{ jcheckbox.values }}</a-col>
         </a-row>
-
-        <!--  JCodeEditor -->
+ 
         <a-row :gutter="24">
           <a-col :span="12">
             <a-form-item label="代码输入框" style="min-height: 120px">
-              <j-code-editor
-                language="javascript"
-                v-model="jcodedditor.value"
-                :fullScreen="true"
-                style="min-height: 100px"/>
+              
             </a-form-item>
           </a-col>
           <a-col :span="12">代码输入框(v-model)：{{ jcodedditor.value }}</a-col>
@@ -275,8 +270,7 @@
   import JSelectUserByDep from '@/components/jeecgbiz/JSelectUserByDep'
   import JSelectMultiUser from '@/components/jeecgbiz/JSelectMultiUser'
   import JSelectRole from '@/components/jeecgbiz/JSelectRole'
-  import JCheckbox from '@/components/jeecg/JCheckbox'
-  import JCodeEditor from '@/components/jeecg/JCodeEditor'
+  import JCheckbox from '@/components/jeecg/JCheckbox' 
   import JDate from '@/components/jeecg/JDate'
   import JEditor from '@/components/jeecg/JEditor'
   import JEllipsis from '@/components/jeecg/JEllipsis'
@@ -296,8 +290,7 @@
       JSelectUserByDep,
       JSelectMultiUser,
       JSelectRole,
-      JCheckbox,
-      JCodeEditor,
+      JCheckbox, 
       JDate, JEditor, JEllipsis, JGraphicCode, JSlider, JSelectMultiple,
       JCron, JTreeSelect
     },

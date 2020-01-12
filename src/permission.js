@@ -3,9 +3,9 @@ import router from './router'
 import store from './store'
 import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css' // progress bar style
-import notification from 'ant-design-vue/es/notification'
+import { notification } from 'ant-design-vue'
 import { ACCESS_TOKEN } from '@/store/mutation-types'
-import { generateIndexRouter } from '@/utils/util'
+import { generateIndexRouter } from './router/utils'
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
 

@@ -141,8 +141,6 @@
 
 <script>
 import ChartCard from '@/components/ChartCard'
-import ACol from 'ant-design-vue/es/grid/Col'
-import ATooltip from 'ant-design-vue/es/tooltip/Tooltip'
 import MiniArea from '@/components/chart/MiniArea'
 import MiniBar from '@/components/chart/MiniBar'
 import MiniProgress from '@/components/chart/MiniProgress'
@@ -171,8 +169,7 @@ for (let i = 0; i < 12; i += 1) {
 export default {
   name: 'IndexChart',
   components: {
-    ATooltip,
-    ACol,
+   
     ChartCard,
     MiniArea,
     MiniBar,

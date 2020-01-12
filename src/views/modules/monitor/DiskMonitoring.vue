@@ -13,12 +13,10 @@
 <script>
   import { getAction } from '@/api/manage'
   import DashChartDemo from '@/components/chart/DashChartDemo'
-  import ARow from 'ant-design-vue/es/grid/Row'
 
   export default {
     name: 'DiskMonitoring',
     components:{
-      ARow,
       DashChartDemo,
     },
     data() {

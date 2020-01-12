@@ -61,7 +61,7 @@ module.exports = {
         }
       },*/
       '/jeecg-boot': {
-        target: 'ttp://boot.jeecg.com/', //请求本地 需要jeecg-boot后台项目
+        target: 'http://boot.jeecg.com/', //请求本地 需要jeecg-boot后台项目
         ws: false,
         changeOrigin: true
       },

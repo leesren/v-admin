@@ -32,14 +32,11 @@
   </a-drawer>
 </template>
 
-<script>
-  import ARow from 'ant-design-vue/es/grid/Row'
-  import ACol from 'ant-design-vue/es/grid/Col'
+<script> 
   import { getAction,postAction } from '@/api/manage'
 
   export default {
-    name: 'RoleDataruleModal',
-    components: { ACol, ARow },
+    name: 'RoleDataruleModal', 
     data(){
       return {
         functionId:'',

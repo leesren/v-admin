@@ -7,13 +7,15 @@ import store from './store/'
 
 import { VueAxios } from '@/utils/request'
 
-import Antd from 'ant-design-vue'
+// import Antd from 'ant-design-vue'
 import Viser from 'viser-vue'
-import 'ant-design-vue/dist/antd.less' // or 'ant-design-vue/dist/antd.less'
+// import 'ant-design-vue/dist/antd.less' // or 'ant-design-vue/dist/antd.less'
 import 'css-comm-utils' // or 'ant-design-vue/dist/antd.less'
 
 import '@/permission' // permission control
 import '@/utils/filter' // base filter
+import installVueAntd from './utils/installVueAntd'
+ 
 
 // import preview from 'vue-photo-preview'
 // import 'vue-photo-preview/dist/skin.css'
@@ -43,7 +45,7 @@ import { settingGlobalConfig, projectConfig } from './config'
 settingGlobalConfig()
 Vue.config.productionTip = false
 Vue.use(Storage, projectConfig.setting.storageOptions)
-Vue.use(Antd)
+Vue.use(installVueAntd)
 Vue.use(VueAxios, router)
 Vue.use(Viser)
 Vue.use(hasPermission)
