@@ -16,7 +16,11 @@
         @change="searchMethods"
         @blur="hiddenClick"
       >
-        <a-select-option v-for="site in search" :value="site.id" :key="site.id">{{ site.meta.title }}</a-select-option>
+        <a-select-option
+          v-for="site in search"
+          :value="site.id"
+          :key="site.id"
+        >{{ site.meta.title }}</a-select-option>
       </a-select>
     </span>
     <!-- update-end author:sunjianlei date:20191@20 for: 解决全局样式冲突的问题 -->
@@ -25,7 +29,11 @@
     <header-notice class="action" />
     <a-dropdown>
       <span class="action action-full ant-dropdown-link user-dropdown-menu">
-        <a-avatar class="avatar" size="small" :src="getAvatar()" />
+        <img
+          class="avatar ant-avatar ant-avatar-sm ant-avatar-circle"
+          size="small"
+          src="~@/assets/icon/default-avatar.svg"
+        />
         <span v-if="isDesktop()">欢迎您，{{ nickname() }}</span>
       </span>
       <a-menu slot="overlay" class="user-dropdown-menu-wrapper">
@@ -135,10 +143,7 @@ export default {
     /* update_end author:zhaoxin date:20191129 for: 做头部菜单栏导航*/
     ...mapActions(['Logout']),
     ...mapGetters(['nickname', 'avatar', 'userInfo']),
-    getAvatar() {
-      console.log('url = ' + window._CONFIG['imgDomainURL'] + '/' + this.avatar())
-      return window._CONFIG['imgDomainURL'] + '/' + this.avatar()
-    },
+
     handleLogout() {
       const that = this
 
@@ -198,11 +203,11 @@ export default {
 <style lang="scss" scoped>
 /* update_begin author:zhaoxin date:20191129 for: 让搜索框颜色能随主题颜色变换*/
 /* update-begin author:sunjianlei date:20191220 for: 解决全局样式冲突问题 */
-.dark{
+.dark {
   color: white;
 }
-.light{
-  color:#515a6e
+.light {
+  color: #515a6e;
 }
 .user-wrapper .search-input {
   width: 180px;

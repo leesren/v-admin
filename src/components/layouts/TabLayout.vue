@@ -1,5 +1,9 @@
 <template>
-  <global-layout ref="gRef" @dynamicRouterShow="dynamicRouterShow" @toggleCollapsed="handleToggleCollapsed">
+  <global-layout
+    ref="gRef"
+    @dynamicRouterShow="dynamicRouterShow"
+    @toggleCollapsed="handleToggleCollapsed"
+  >
     <!-- update-begin- author:sunjianlei --- date:20191009 --- for: 提升右键菜单的层级 -->
     <contextmenu :itemList="menuItemList" :visible.sync="menuVisible" @select="onMenuSelect" />
     <!-- update-end- author:sunjianlei --- date:20191009 --- for: 提升右键菜单的层级 -->
@@ -11,7 +15,7 @@
             @contextmenu.native="e => onContextmenu(e)"
             v-if="multipage"
             :active-key="activePage"
-            class="tab-layout-tabs "
+            class="tab-layout-tabs"
             style="height:52px"
             :hide-add="true"
             type="editable-card"
@@ -29,11 +33,14 @@
         <a-dropdown>
           <a-menu slot="overlay">
             <a-menu-item v-for="(item, index) in menuItemList" :key="index">
-              <a-icon role="menuitemicon" v-if="item.icon" :type="item.icon" />{{ item.text }}
+              <a-icon role="menuitemicon" v-if="item.icon" :type="item.icon" />
+              {{ item.text }}
             </a-menu-item>
           </a-menu>
 
-          <a-button type="link"><a-icon class="fs16" type="down"/></a-button>
+          <a-button type="link">
+            <a-icon class="fs16" type="down" />
+          </a-button>
         </a-dropdown>
       </div>
     </div>
@@ -358,19 +365,8 @@ export default {
   }
 }
 .tab-layout-tabs-nav {
-  /deep/ .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab {
-    border-radius: 4px;
-    border: 0;
-    border-bottom: 0 !important;
-  }
   /deep/.ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab-active {
     border: 0 !important;
-  }
-  /deep/.ant-tabs.ant-tabs-card .ant-tabs-tab .ant-tabs-close-x {
-    opacity: 0.45 !important;
-  }
-  /deep/.tab-layout-tabs.ant-tabs {
-    border-bottom: 0;
   }
 }
 .fixed-tabNav {
@@ -386,5 +382,19 @@ export default {
     top: 50%;
     transform: translateY(-50%);
   }
+}
+</style>
+<style >
+.fixed-tabNav .tab-layout-tabs.ant-tabs {
+  border-bottom: 0;
+  border-left: 0;
+}
+.fixed-tabNav .ant-tabs.ant-tabs-card .ant-tabs-tab .ant-tabs-close-x {
+  opacity: 0.45 !important;
+}
+.fixed-tabNav .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab {
+  border-radius: 4px;
+  border: 0;
+  border-bottom: 0 !important;
 }
 </style>
